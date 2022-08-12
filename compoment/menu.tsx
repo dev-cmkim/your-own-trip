@@ -18,6 +18,7 @@ const MenuItem = styled.a`
 
 
 const Menu = () => {
+    // Hydration error 대응 -> 페이지가 클라이언트에 마운트될 때 현재 테마를 사용하는 UI만 렌더링해야함, userEffect 사용
     const [mounted, setMounted] = useState(false)
 
     useEffect(()=> {
