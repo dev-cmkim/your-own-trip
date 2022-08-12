@@ -5,10 +5,8 @@ const Input = styled.input`
     text-align: center;
     outline: none;
     border: none;
-    border-bottom-color: currentcolor;
-    border-bottom-style: none;
-    border-bottom-width: medium;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    font-size:20px;
     width: 240px;
     margin: 0 auto;
     position: fixed;
@@ -26,7 +24,6 @@ const InputText = () => {
         console.log(userName)
 
         setName(userName)
-
     }
     return (
         <div>
