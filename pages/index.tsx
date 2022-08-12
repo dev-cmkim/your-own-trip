@@ -15,7 +15,7 @@ const Home = () => {
                 <span className="title-text2"> 당신만의 여행</span> : ''
                 }
                 <InputText />
-                <Link href="/about">
+                <Link href="/step1">
                     <button 
                     onMouseOver={() => setIsHovering(1)} 
                     onMouseOut={() => setIsHovering(0)}

@@ -21,10 +21,12 @@ const InputText = () => {
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         const userName = e.currentTarget.value;
-        console.log(userName)
+        // console.log(userName)
 
         setName(userName)
+        localStorage.setItem('userName', userName)
     }
+
     return (
         <div>
             <Input 
