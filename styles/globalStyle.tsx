@@ -10,11 +10,46 @@ export const GlobalStyle = createGlobalStyle`
     letter-spacing: -1px;
     font-size: 15px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
-
-  .txt-c {
+  //title
+  .title-text1, .title-text2 {
+    font-size:36px;
     text-align: center;
+    font-weight: bold;
+    color:#4a728f;
+    flex-direction: row;
+  }
+  .title-text2 {
+    font-size:20px;
+    transition: all ease 2s 0s;
+  }
+  .init-main {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-start {
+    width: 120px;
+    height: 40px;
+    position: fixed;
+    border: ;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4a728f;
+    color:#fff;
+    font-size: 20px;
+    font-weight: bold;
+    outline:none;
+    border:none;
+    border-radius:20px;
+  }
+  .btn-start:hover {
+    background-color: #fff;
+    color:#4a728f;
+    border: 2px solid #4a728f
+    transition: all ease 2s 0s;
   }
   .txt-r {
     text-align: right;

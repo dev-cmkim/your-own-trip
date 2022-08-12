@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react"
+
 import Link from  "next/link"
 import styled from "styled-components"
 
@@ -14,23 +16,36 @@ const MenuItem = styled.a`
     margin : 0 20px;
 `;
 
-export default function Menu () {
-    return(
-        <main>
-            <MenuBar>
-                <nav>
-                    <Link href="/">
-                        <MenuItem>
-                            <a>homess</a>
-                        </MenuItem>
-                    </Link>
-                    <Link href="/about">
-                        <MenuItem>
-                            <a>about</a>
-                        </MenuItem>
-                    </Link>
-                </nav>
-            </MenuBar>
-        </main>
+
+const Menu = () => {
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(()=> {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return null
+    }
+
+    return (
+        <MenuBar>
+            <nav>
+                <Link href="/">
+                    <MenuItem>
+                        <a>home</a>
+                    </MenuItem>
+                </Link>
+                <Link href="/about">
+                    <MenuItem>
+                        <a>about</a>
+                    </MenuItem>
+                </Link>
+            </nav>
+        </MenuBar>
     )
+   
 }
+
+
+export default Menu
