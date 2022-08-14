@@ -1,9 +1,28 @@
+import { useEffect, useState } from "react"
+import styled from "styled-components"
+import { strings } from "../common/strings";
+import SelectBoxMap from "../compoment/selectBoxMap";
+import { GlobalStyle } from "../styles/globalStyle"
+
+
 const Step1 = () => {
+    const [userName, setUserName] = useState('')
+    useEffect(() => {
+        // Perform localStorage action
+        const userName = localStorage.getItem('userName')
+        setUserName(userName ? userName : '');
+    }, [])
+    
     return (
         <div>
-            <h1 className="title-text1"> 원하시는 지역을 선택해주세요. </h1>
+            <GlobalStyle />
+            <main>
+                <h1 className="title-text2"> {userName} {strings.question.place} </h1>
+                <SelectBoxMap />
+            </main>
         </div>
     )
+
 }
 
 export default Step1

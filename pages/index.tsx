@@ -2,12 +2,13 @@ import Link from "next/link"
 import { useState } from "react"
 import InputText from "../compoment/inputText"
 import Menu from "../compoment/menu"
+import { strings } from "../common/strings"
 import { GlobalStyle } from "../styles/globalStyle"
 
 const Home = () => {
     const [isHovering, setIsHovering ] = useState(0)
     return (
-        <div >
+        <div>
             <GlobalStyle />
             <div className="init-main">
                 <span className="title-text1">Your own trip : </span>
@@ -19,7 +20,7 @@ const Home = () => {
                     <button 
                     onMouseOver={() => setIsHovering(1)} 
                     onMouseOut={() => setIsHovering(0)}
-                    className="btn-start">시작하기</button>
+                    className="btn-start">{strings.button.start}</button>
                 </Link>
             </div>
         </div>

@@ -42,6 +42,9 @@ export const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
+  main {
+    padding: 40px;
+  }
   //title
   .title-text1, .title-text2 {
     font-size:36px;
@@ -52,7 +55,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   .title-text2 {
     font-size:20px;
-    transition: all ease 2s 0s;
   }
   .init-main {
     padding: 100px 20px;
@@ -63,12 +65,12 @@ export const GlobalStyle = createGlobalStyle`
     width: 120px;
     height: 40px;
     position: fixed;
-    border: ;
     bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #4a728f;
     color:#fff;
+    border: 2px solid #4a728f;
     font-size: 20px;
     font-weight: bold;
     outline:none;
@@ -78,9 +80,10 @@ export const GlobalStyle = createGlobalStyle`
   .btn-start:hover {
     background-color: #fff;
     color:#4a728f;
-    border: 2px solid #4a728f
-    transition: all ease 2s 0s;
+    border: 2px solid #4a728f;
+    transition: all ease 0.5s 0s;
   }
+
   .txt-r {
     text-align: right;
   }
@@ -89,5 +92,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   p {
     margin: 0;
+  }
+  // 지역선택
+  .map-wrapper {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
