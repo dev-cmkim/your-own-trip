@@ -10,7 +10,6 @@ const Grid = styled.div`
     padding: 16px;
 `
 const Item = styled.div`
-    padding: 10px;
     text-align: center;
     line-height: 100px;
     border:2px solid #4a728f;
@@ -38,6 +37,7 @@ const SelectBoxMap = () => {
     ]
   
     const [activeId, setActiveId] = useState();
+    const [btnActive, setBtnActive] = useState(false);
 
     return(
         <div>
@@ -45,10 +45,11 @@ const SelectBoxMap = () => {
             {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
-                localStorage.setItem('myPlace', val.text)
-                console.log(localStorage.getItem('myPlace'))
+                // localStorage.setItem('myPlace', val.text)
+                setBtnActive(!btnActive)
              }}
              className={`${activeId == val.id  && 'on'}`}
+             //array 안에 있는 chiid 는 고유한 key 값을 가져야한다.
              key = {val.id}
              >
              {val.text}
@@ -56,7 +57,9 @@ const SelectBoxMap = () => {
             ))}
         </Grid>
         <Link href="/step2">
-            <button className="btn-start">{strings.button.next}</button>
+             {btnActive ? 
+                <button className="btn-start">{strings.button.next}</button> : <button className="btn-disabled" disabled>{strings.button.next}</button>
+             }
         </Link>
         </div>
     )

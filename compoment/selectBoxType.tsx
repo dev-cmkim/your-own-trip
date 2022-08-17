@@ -9,7 +9,6 @@ const Grid = styled.div`
     padding: 16px;
 `
 const Item = styled.div`
-    padding: 10px;
     text-align: center;
     line-height: 100px;
     border:2px solid #4a728f;

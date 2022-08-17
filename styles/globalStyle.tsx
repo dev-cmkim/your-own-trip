@@ -77,6 +77,20 @@ export const GlobalStyle = createGlobalStyle`
     border:none;
     border-radius:20px;
   }
+  .btn-disabled {
+    width: 120px;
+    height: 40px;
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    outline:none;
+    border:none;
+    border-radius:20px;
+    background-color: #ddd;
+  }
   .btn-start:hover {
     background-color: #fff;
     color:#4a728f;
