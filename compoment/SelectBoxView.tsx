@@ -29,7 +29,7 @@ const Item = styled.div`
 `
 
 const SelectBoxView = () => {
-    let values : number | string  = [
+    const values = [
         { id: 1, text: "숲" },
         { id: 2, text: "바다"},
     ]
@@ -39,12 +39,13 @@ const SelectBoxView = () => {
     return(
         <div>
         <Grid>
-            {values.map((val) => (
+            {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
                 localStorage.setItem('myView',JSON.stringify(val.text))
                 console.log(localStorage.getItem('myView'))
              }}
+             key = {val.id}
              className={`${activeId == val.id  && 'on'}`}>
              {val.text}
              </Item>

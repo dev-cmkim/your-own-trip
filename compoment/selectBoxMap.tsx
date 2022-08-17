@@ -28,7 +28,7 @@ const Item = styled.div`
     }
 `
 const SelectBoxMap = () => {   
-    let values : number | string  = [
+    const values = [
         { id: 1, text: "SEOUL" },
         { id: 2, text: "GYEONGGI" },
         { id: 3, text: "BUSAN" },
@@ -42,13 +42,15 @@ const SelectBoxMap = () => {
     return(
         <div>
         <Grid>
-            {values.map((val) => (
+            {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
                 localStorage.setItem('myPlace', val.text)
                 console.log(localStorage.getItem('myPlace'))
              }}
-             className={`${activeId == val.id  && 'on'}`}>
+             className={`${activeId == val.id  && 'on'}`}
+             key = {val.id}
+             >
              {val.text}
              </Item>
             ))}

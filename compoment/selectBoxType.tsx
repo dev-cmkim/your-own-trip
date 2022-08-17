@@ -39,12 +39,13 @@ const SelectBoxType = () => {
     return(
         <div>
         <Grid>
-            {values.map((val) => (
+            {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
                 localStorage.setItem('myType',JSON.stringify(val.text))
                 console.log(localStorage.getItem('myType'))
              }}
+             key = {val.id}
              className={`${activeId == val.id  && 'on'}`}>
              {val.text}
              </Item>
