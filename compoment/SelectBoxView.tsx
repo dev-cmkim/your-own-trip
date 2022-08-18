@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const Grid = styled.div`
     display:grid;
-    // grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     padding: 16px;
 `
 const Item = styled.div`
@@ -29,11 +29,14 @@ const Item = styled.div`
 
 const SelectBoxView = () => {
     const values = [
-        { id: 1, text: "숲" },
-        { id: 2, text: "바다"},
+        { id: 1, text: '숲' },
+        { id: 2, text: '바다/강'},
+        { id: 3, text: '랜드마크'},
+        { id: 4, text: '쇼핑'},
     ]
 
     const [activeId, setActiveId] = useState();
+    const [btnActive, setBtnActive] = useState(false);
 
     return(
         <div>
@@ -43,6 +46,7 @@ const SelectBoxView = () => {
                 setActiveId(val.id)
                 localStorage.setItem('myView',JSON.stringify(val.text))
                 console.log(localStorage.getItem('myView'))
+                setBtnActive(true)
              }}
              key = {val.id}
              className={`${activeId == val.id  && 'on'}`}>
@@ -51,7 +55,10 @@ const SelectBoxView = () => {
             ))}
         </Grid>
         <Link href="/step4">
-            <button className="btn-start">{strings.button.next}</button>
+            {btnActive ? 
+                <button 
+                className="btn-start">{strings.button.next}</button> : <button className="btn-disabled" disabled>{strings.button.next}</button>
+             }
         </Link>
         </div>
     )

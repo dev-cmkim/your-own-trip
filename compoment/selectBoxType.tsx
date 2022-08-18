@@ -27,13 +27,14 @@ const Item = styled.div`
 `
 const SelectBoxType = () => {   
     const values =  [
-        { id: 1, text: "힐링" },
-        { id: 2, text: "액티비티"},
-        { id: 3, text: "맛집투어"},
-        { id: 4, text: "호캉스"},
+        { id: 1, text: '힐링' },
+        { id: 2, text: '액티비티'},
+        { id: 3, text: '맛집투어'},
+        { id: 4, text: '호캉스'},
       ];
   
     const [activeId, setActiveId] = useState();
+    const [btnActive, setBtnActive] = useState(false);
 
     return(
         <div>
@@ -43,6 +44,7 @@ const SelectBoxType = () => {
                 setActiveId(val.id)
                 localStorage.setItem('myType',JSON.stringify(val.text))
                 console.log(localStorage.getItem('myType'))
+                setBtnActive(true)
              }}
              key = {val.id}
              className={`${activeId == val.id  && 'on'}`}>
@@ -51,7 +53,9 @@ const SelectBoxType = () => {
             ))}
         </Grid>
         <Link href="/step3">
-            <button className="btn-start">{strings.button.next}</button>
+            {btnActive ? 
+                <button className="btn-start">{strings.button.next}</button> : <button className="btn-disabled" disabled>{strings.button.next}</button>
+             }
         </Link>
         </div>
     )

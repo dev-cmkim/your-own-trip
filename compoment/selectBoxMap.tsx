@@ -28,12 +28,12 @@ const Item = styled.div`
 `
 const SelectBoxMap = () => {   
     const values = [
-        { id: 1, text: "SEOUL" },
-        { id: 2, text: "GYEONGGI" },
-        { id: 3, text: "BUSAN" },
-        { id: 4, text: "JEJU" },
-        { id: 5, text: "준비중" },
-        { id: 6, text: "준비중" }
+        { id: 1, text: 'SEOUL' },
+        { id: 2, text: 'GYEONGGI'},
+        { id: 3, text: 'BUSAN' },
+        { id: 4, text: 'JEJU' },
+        { id: 5, text: 'GANGWON' },
+        { id: 6, text: '준비중' }
     ]
   
     const [activeId, setActiveId] = useState();
@@ -44,9 +44,13 @@ const SelectBoxMap = () => {
         <Grid>
             {values.map((val:any) => (
              <Item onClick={(e:any) => {
-                setActiveId(val.id)
-                // localStorage.setItem('myPlace', val.text)
-                setBtnActive(!btnActive)
+                if (val.text != "준비중") {
+                    setActiveId(val.id)
+                    localStorage.setItem('myPlace', JSON.stringify(val.text))
+                    setBtnActive(true)
+                }else {
+                    alert("준비중 입니다..!")
+                }
              }}
              className={`${activeId == val.id  && 'on'}`}
              //array 안에 있는 chiid 는 고유한 key 값을 가져야한다.
