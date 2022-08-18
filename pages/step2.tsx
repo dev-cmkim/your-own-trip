@@ -3,7 +3,7 @@ import { strings } from '../common/strings';
 import SelectBoxType from '../compoment/selectBoxType';
 import { GlobalStyle } from '../styles/globalStyle';
 
-const step2 = () => {
+const Step2 = () => {
     const [userName, setUserName] = useState('')
     useEffect(() => {
         // Perform localStorage action
@@ -20,4 +20,4 @@ const step2 = () => {
     );
 }
 
-export default step2;
+export default Step2;

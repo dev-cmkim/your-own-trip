@@ -3,7 +3,7 @@ import { strings } from "../common/strings";
 import { GlobalStyle } from "../styles/globalStyle";
 
 
-const step4 = () => {
+const Step4 = () => {
     const [userName, setUserName] = useState('')
     const [place, setPlace] = useState('')
     const [type, setType] = useState('')
@@ -18,7 +18,10 @@ const step4 = () => {
         setType(type ? type : '');
         const view = localStorage.getItem('myView')
         setView(view ? view : '');
+
+        console.log(localStorage)
     }, [])
+
     
 
     return (
@@ -34,4 +37,4 @@ const step4 = () => {
     );
 }
 
-export default step4;
+export default Step4;
