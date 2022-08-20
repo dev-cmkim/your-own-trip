@@ -2,7 +2,9 @@ export const strings = {
     button: {
         start : '시작하기',
         next : '다음',
-        prev: '이전'
+        prev: '이전',
+        beforeData: '결과보기',
+        reStart: '다시하기'
     },
     question : {
         place : '님이 원하시는 지역을 선택해주세요.',
