@@ -7,8 +7,25 @@ import { GlobalStyle } from "../styles/globalStyle"
 import styled from "styled-components"
 
 const BtnWrap = styled.div`
-    position: relative;
-    border: 1px solid red;
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display:flex;
+`
+
+const Button = styled.button`
+    width: 120px;
+    height: 40px;
+    background-color: #4a728f;
+    border: 2px solid #4a728f;
+    color:#fff;
+    font-size: 20px;
+    font-weight: bold;
+    outline:none;
+    border:none;
+    border-radius:20px;
+    margin: 0 10px;
 `
 
 const Home = () => {
@@ -48,13 +65,16 @@ const Home = () => {
                         className="btn-start">{strings.button.start}</button>
                     </Link> 
                 </div>
-                    :
+                :
                 <BtnWrap>
                     <Link href="/step4">
-                        <button className="btn-start">{strings.button.beforeData}</button>
+                        <Button className="btn-hover">{strings.button.beforeData}</Button>
                     </Link>  
                     <Link href="/step1">
-                        <button className="btn-restart">{strings.button.reStart}</button>
+                        <Button className="btn-hover" onClick={() => {
+                            localStorage.clear()
+                            console.log("초기화 탕탕탕")
+                        }}>{strings.button.reStart}</Button>
                     </Link> 
                 </BtnWrap>
                 }

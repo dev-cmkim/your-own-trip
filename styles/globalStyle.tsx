@@ -91,12 +91,14 @@ export const GlobalStyle = createGlobalStyle`
     border-radius:20px;
     background-color: #ddd;
   }
-  .btn-start:hover {
+  .btn-start:hover,
+  .btn-hover:hover {
     background-color: #fff;
     color:#4a728f;
     border: 2px solid #4a728f;
     transition: all ease 0.5s 0s;
   }
+
 
   .txt-r {
     text-align: right;
