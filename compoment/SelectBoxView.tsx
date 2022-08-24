@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const Grid = styled.div`
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fㄱ;
     padding: 16px;
 `
 const Item = styled.div`
@@ -29,10 +29,8 @@ const Item = styled.div`
 
 const SelectBoxView = () => {
     const values = [
-        { id: 1, text: '숲' },
-        { id: 2, text: '바다/강'},
-        { id: 3, text: '랜드마크'},
-        { id: 4, text: '쇼핑'},
+        { id: 1, text: '숲', type:'C1' },
+        { id: 2, text: '바다/강', type: 'C2'}
     ]
 
     const [activeId, setActiveId] = useState();
@@ -45,6 +43,7 @@ const SelectBoxView = () => {
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
                 localStorage.setItem('myView',JSON.stringify(val.text))
+                localStorage.setItem('typeC',JSON.stringify(val.type))
                 console.log(localStorage.getItem('myView'))
                 setBtnActive(true)
              }}

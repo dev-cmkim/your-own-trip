@@ -28,12 +28,12 @@ const Item = styled.div`
 `
 const SelectBoxMap = () => {   
     const values = [
-        { id: 1, text: 'SEOUL' },
-        { id: 2, text: 'GYEONGGI'},
-        { id: 3, text: 'BUSAN' },
-        { id: 4, text: 'JEJU' },
-        { id: 5, text: 'GANGWON' },
-        { id: 6, text: '준비중' }
+        { id: 1, text: 'SEOUL', type: 'A1'},
+        { id: 2, text: 'GYEONGGI', type:'A2'},
+        { id: 3, text: 'BUSAN', type: 'A3' },
+        { id: 4, text: 'JEJU', type: 'A4' },
+        { id: 5, text: 'GANGWON', type: 'A5' },
+        { id: 6, text: '준비중', type: 'A6' }
     ]
   
     const [activeId, setActiveId] = useState();
@@ -47,6 +47,7 @@ const SelectBoxMap = () => {
                 if (val.text != "준비중") {
                     setActiveId(val.id)
                     localStorage.setItem('myPlace', JSON.stringify(val.text))
+                    localStorage.setItem('typeA',JSON.stringify(val.type))
                     setBtnActive(true)
                 }else {
                     alert("준비중 입니다..!")

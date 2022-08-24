@@ -27,10 +27,10 @@ const Item = styled.div`
 `
 const SelectBoxType = () => {   
     const values =  [
-        { id: 1, text: '힐링' },
-        { id: 2, text: '액티비티'},
-        { id: 3, text: '맛집투어'},
-        { id: 4, text: '호캉스'},
+        { id: 1, text: '힐링' , type: 'B1'},
+        { id: 2, text: '액티비티', type: 'B2'},
+        { id: 3, text: '맛집투어', type: 'B3'},
+        { id: 4, text: '호캉스', type: 'B4'},
       ];
   
     const [activeId, setActiveId] = useState();
@@ -43,6 +43,7 @@ const SelectBoxType = () => {
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
                 localStorage.setItem('myType',JSON.stringify(val.text))
+                localStorage.setItem('typeB',JSON.stringify(val.type))
                 console.log(localStorage.getItem('myType'))
                 setBtnActive(true)
              }}

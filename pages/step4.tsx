@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { strings } from "../common/strings";
+import Items from "../compoment/Items";
 import { GlobalStyle } from "../styles/globalStyle";
 
 
@@ -7,22 +8,21 @@ const Step4 = () => {
     const [userName, setUserName] = useState('')
     const [place, setPlace] = useState('')
     const [type, setType] = useState('')
-    const [view, setView] = useState('')
+    const [view, setView] = useState(null)
+
+    const [res , setRes] = useState()
 
     useEffect(() => {
-        const userName = localStorage.getItem('userName')
-        setUserName(userName ? userName : '');
-        const place = localStorage.getItem('myPlace')
-        setPlace(place ? place : '');
-        const type = localStorage.getItem('myType')
-        setType(type ? type : '');
-        const view = localStorage.getItem('myView')
-        setView(view ? view : '');
+        const array = [];
+        array.push(localStorage.getItem('typeA'))
+        array.push(localStorage.getItem('typeB'))
+        array.push(localStorage.getItem('typeC'))
 
-        console.log(localStorage)
+        setRes(array)
     }, [])
-
     
+    // console.log(res)
+    console.log("blablabla")
 
     return (
         <div>
@@ -32,6 +32,7 @@ const Step4 = () => {
                 <span>{place} 에서</span>
                 <span>{type} 컨셉으로</span>
                 <span>{view} 을 보고싶은 여행</span>
+                <Items/>
             </main>
         </div>
     );
