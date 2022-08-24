@@ -30,7 +30,7 @@ const Button = styled.button`
 
 const Home = () => {
     const [isHovering, setIsHovering ] = useState(0)
-    const [gubun, setGubun] = useState('N')
+    const [gubun, setGubun] = useState(false)
 
     useEffect(() => {
         // Perform localStorage action
@@ -38,7 +38,7 @@ const Home = () => {
         console.log(data)
 
         if (data.length > 0 ) {
-            setGubun('Y')
+            setGubun(!gubun)
             console.log("이력있음")
         }else {
             console.log("이력없음")
@@ -55,28 +55,28 @@ const Home = () => {
                 {isHovering ? 
                 <span className="title-text2"> 당신만의 여행</span> : ''
                 }
-                {!gubun ?
-                <div>
-                    <InputText />
-                    <Link href="/step1">
-                        <button 
-                        onMouseOver={() => setIsHovering(1)} 
-                        onMouseOut={() => setIsHovering(0)}
-                        className="btn-start">{strings.button.start}</button>
-                    </Link> 
-                </div>
+                {!gubun ? 
+                    <div>
+                        <InputText />
+                        <Link href="/step1">
+                            <button 
+                            onMouseOver={() => setIsHovering(1)} 
+                            onMouseOut={() => setIsHovering(0)}
+                            className="btn-start">{strings.button.start}</button>
+                        </Link> 
+                    </div>
                 :
-                <BtnWrap>
-                    <Link href="/step4">
-                        <Button className="btn-hover">{strings.button.beforeData}</Button>
-                    </Link>  
-                    <Link href="/step1">
+                    <BtnWrap>
+                        <Link href="/step4">
+                            <Button className="btn-hover">{strings.button.beforeData}</Button>
+                        </Link>  
                         <Button className="btn-hover" onClick={() => {
                             localStorage.clear()
+                            setGubun(!gubun)
                             console.log("초기화 탕탕탕")
-                        }}>{strings.button.reStart}</Button>
-                    </Link> 
-                </BtnWrap>
+                        }}>{strings.button.reStart}
+                        </Button>
+                    </BtnWrap>
                 }
             </div>
         </div>
