@@ -7,22 +7,20 @@ import { GlobalStyle } from "../styles/globalStyle";
 const Step4 = () => {
     const [userName, setUserName] = useState('')
     const [place, setPlace] = useState('')
-    const [type, setType] = useState('')
-    const [view, setView] = useState(null)
-
-    const [res , setRes] = useState()
+    const [concept, setConcept] = useState('')
+    const [view, setView] = useState('')
+    const [res , setRes] = useState('')
 
     useEffect(() => {
         const array = [];
-        array.push(localStorage.getItem('typeA'))
-        array.push(localStorage.getItem('typeB'))
-        array.push(localStorage.getItem('typeC'))
-
-        setRes(array)
+        array.push(localStorage)
+        
+        setUserName(array[0].userName)
+        setPlace(array[0].place)
+        setConcept(array[0].concept)
+        setView(array[0].view)
     }, [])
     
-    // console.log(res)
-    console.log("blablabla")
 
     return (
         <div>
@@ -30,7 +28,7 @@ const Step4 = () => {
                 <main>
                 <h1 className="title-text2"> {userName} {strings.question.success} </h1>
                 <span>{place} 에서</span>
-                <span>{type} 컨셉으로</span>
+                <span>{concept} 컨셉으로</span>
                 <span>{view} 을 보고싶은 여행</span>
                 <Items/>
             </main>

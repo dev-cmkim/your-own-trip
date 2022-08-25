@@ -42,7 +42,7 @@ const SelectBoxType = () => {
             {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
-                localStorage.setItem('myType',JSON.stringify(val.text))
+                localStorage.setItem('concept',JSON.stringify(val.text))
                 localStorage.setItem('typeB',JSON.stringify(val.type))
                 console.log(localStorage.getItem('myType'))
                 setBtnActive(true)

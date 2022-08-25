@@ -46,7 +46,7 @@ const SelectBoxMap = () => {
              <Item onClick={(e:any) => {
                 if (val.text != "준비중") {
                     setActiveId(val.id)
-                    localStorage.setItem('myPlace', JSON.stringify(val.text))
+                    localStorage.setItem('place', JSON.stringify(val.text))
                     localStorage.setItem('typeA',JSON.stringify(val.type))
                     setBtnActive(true)
                 }else {
