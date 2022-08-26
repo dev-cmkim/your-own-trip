@@ -7,7 +7,7 @@ const Step2 = () => {
     const [userName, setUserName] = useState('')
     useEffect(() => {
         // Perform localStorage action
-        const userName = localStorage.getItem('userName')
+        const userName = localStorage.getItem('name')
         setUserName(userName ? userName : '');
     }, [])
 

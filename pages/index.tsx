@@ -31,6 +31,7 @@ const Button = styled.button`
 const Home = () => {
     const [isHovering, setIsHovering ] = useState(0)
     const [gubun, setGubun] = useState(false)
+    const name:any = []
 
     useEffect(() => {
         // Perform localStorage action
@@ -46,6 +47,12 @@ const Home = () => {
     }, [])
 
     console.log(gubun)
+
+    const saveName = () => {
+        name.push(localStorage.getItem('userName'))
+        localStorage.removeItem('userName')
+        localStorage.setItem('name',name)
+    }
         
     return (
         <div>
@@ -62,6 +69,7 @@ const Home = () => {
                             <button 
                             onMouseOver={() => setIsHovering(1)} 
                             onMouseOut={() => setIsHovering(0)}
+                            onClick={ saveName }
                             className="btn-start">{strings.button.start}</button>
                         </Link> 
                     </div>

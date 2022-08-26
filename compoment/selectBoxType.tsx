@@ -36,16 +36,17 @@ const SelectBoxType = () => {
     const [activeId, setActiveId] = useState();
     const [btnActive, setBtnActive] = useState(false);
 
+    const dataArray:any = []
+
     return(
         <div>
         <Grid>
             {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
-                localStorage.setItem('concept',JSON.stringify(val.text))
-                localStorage.setItem('typeB',JSON.stringify(val.type))
-                console.log(localStorage.getItem('myType'))
                 setBtnActive(true)
+                dataArray.push({title:'concept', value:val.text, type: val.type});
+                localStorage.setItem('concept',JSON.stringify(dataArray))
              }}
              key = {val.id}
              className={`${activeId == val.id  && 'on'}`}>

@@ -12,13 +12,15 @@ const Step4 = () => {
     const [res , setRes] = useState('')
 
     useEffect(() => {
-        const array = [];
-        array.push(localStorage)
-        
-        setUserName(array[0].userName)
-        setPlace(array[0].place)
-        setConcept(array[0].concept)
-        setView(array[0].view)
+        const localData = [];
+        localData.push(localStorage)
+
+        setUserName(localData[0].name)
+        setPlace(localData[0].place)
+        setConcept(localData[0].concept)
+        setView(localData[0].view)
+
+        console.log(localData[0].place.value)
     }, [])
     
 

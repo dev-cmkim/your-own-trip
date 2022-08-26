@@ -36,16 +36,17 @@ const SelectBoxView = () => {
     const [activeId, setActiveId] = useState();
     const [btnActive, setBtnActive] = useState(false);
 
+    const dataArray:any =[]
+
     return(
         <div>
         <Grid>
             {values.map((val:any) => (
              <Item onClick={(e:any) => {
                 setActiveId(val.id)
-                localStorage.setItem('view',JSON.stringify(val.text))
-                localStorage.setItem('typeC',JSON.stringify(val.type))
-                console.log(localStorage.getItem('myView'))
                 setBtnActive(true)
+                dataArray.push({title:'view', value:val.text, type: val.type})
+                localStorage.setItem('view',JSON.stringify(dataArray))
              }}
              key = {val.id}
              className={`${activeId == val.id  && 'on'}`}>

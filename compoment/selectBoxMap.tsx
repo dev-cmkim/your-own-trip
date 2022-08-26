@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { strings } from "../common/strings"
 import styled from "styled-components"
 import Link from "next/link"
+import { json } from "stream/consumers"
 
 
 const Grid = styled.div`
@@ -39,6 +40,8 @@ const SelectBoxMap = () => {
     const [activeId, setActiveId] = useState();
     const [btnActive, setBtnActive] = useState(false);
 
+    const dataArray:any = []
+    
     return(
         <div>
         <Grid>
@@ -46,9 +49,10 @@ const SelectBoxMap = () => {
              <Item onClick={(e:any) => {
                 if (val.text != "준비중") {
                     setActiveId(val.id)
-                    localStorage.setItem('place', JSON.stringify(val.text))
-                    localStorage.setItem('typeA',JSON.stringify(val.type))
                     setBtnActive(true)
+                    dataArray.push({title:'place', value:val.text, type: val.type});
+                    console.log(dataArray)
+                    localStorage.setItem('place',JSON.stringify(dataArray))
                 }else {
                     alert("준비중 입니다..!")
                 }
