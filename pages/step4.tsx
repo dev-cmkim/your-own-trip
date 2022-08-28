@@ -9,18 +9,15 @@ const Step4 = () => {
     const [place, setPlace] = useState('')
     const [concept, setConcept] = useState('')
     const [view, setView] = useState('')
-    const [res , setRes] = useState('')
+    const res:any = []
+
 
     useEffect(() => {
-        const localData = [];
-        localData.push(localStorage)
+        setUserName(localStorage.getItem('name') || '')
+        setPlace(JSON.parse(localStorage.getItem('place') || '{}')[0].value)
+        setConcept(JSON.parse(localStorage.getItem('concept') || '{}')[0].value)
+        setView(JSON.parse(localStorage.getItem('view') || '{}')[0].value)
 
-        setUserName(localData[0].name)
-        setPlace(localData[0].place)
-        setConcept(localData[0].concept)
-        setView(localData[0].view)
-
-        console.log(localData[0].place.value)
     }, [])
     
 
