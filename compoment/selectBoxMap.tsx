@@ -27,6 +27,7 @@ const Item = styled.div`
         transition: all ease 0.5s 0s;
     }
 `
+
 const SelectBoxMap = () => {   
     const values = [
         { id: 1, text: 'SEOUL', type: 'A1'},

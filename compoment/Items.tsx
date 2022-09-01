@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
+import {hSeoul1, hSeoul2, hSeoul3} from '../assets/images';
 
 const ItemWrap = styled.div`
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border: 1px solid blue;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
 `
 
 const Item = styled.div`
-    border: 1px solid red;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    border-radius: 10px;
     margin: 10px;
     width:150px;
-    height:150px;
+    text-align: center;
+    padding: 6px;
+`
+const Title = styled.p`
+    margin-top: 10px;
+    font-size: 16px;
+    font-weigh: bold;
 `
 const array = [];
 
@@ -20,59 +30,28 @@ const Items = () => {
     const [place, setPlace] = useState('')
     const [concept, setConcept] = useState('')
     const [view, setView] = useState('')
-    const res:any = []
+    const seoulData:any = [
+        {id :1 ,name : '숙소', img :hSeoul2, text: 'UH SUITE 서울'},
+        {id: 2, name : '카페', img :hSeoul2, text: '서울 핫플 카페'},
+        {id: 3, name : '볼거리', img :hSeoul2, text: '서울 볼거리'}
+    ]
+    // console.log(seoulData)
 
     useEffect(() => {
         setUserName(localStorage.getItem('name') || '')
         setPlace(JSON.parse(localStorage.getItem('place') || '{}')[0].value)
         setConcept(JSON.parse(localStorage.getItem('concept') || '{}')[0].value)
         setView(JSON.parse(localStorage.getItem('view') || '{}')[0].value)
-
-        switch(JSON.parse(localStorage.getItem('place')|| '{}')[0].type) {
-            case 'A1': res.push({image : '서둘'})
-                 break;
-            case 'A2': res.push({image : '경기'})
-                 break;
-            case 'A3': console.log("부산")
-                 break;
-            case 'A4': console.log("제주")
-                 break;
-            case 'A5': console.log("강원도")
-                 break;
-        }
-        
-        switch(JSON.parse(localStorage.getItem('concept')|| '{}')[0].type) {
-            case 'B1': res.push({image : '힐링'})
-                 break;
-            case 'B2': res.push({image : '액티비티'})
-                 break;
-            case 'B3': console.log("맛집투어")
-                 break;
-            case 'B4': console.log("호캉스")
-                 break;
-        }
-
-        switch(JSON.parse(localStorage.getItem('view')|| '{}')[0].type) {
-            case 'C1': console.log("숲")
-                 break;
-            case 'C2': console.log("바다/강")
-                 break;
-        }
-
-        console.log(res)
     }, [])
 
     return (
         <ItemWrap>
-            <Item>
-                fdkfjdkfjkdjkafd
-            </Item>
-            <Item>
-                dfdfd
-            </Item>
-            <Item>
-                dfdfd
-            </Item>
+            {seoulData.map((val:any) => (
+                <Item key={val.id}>
+                    <Image src={val.img} alt=""width="100%" height="100%" layout="responsive" objectFit="cover" />
+                    <Title>{val.text}</Title>
+                </Item> 
+            ))}
         </ItemWrap>
     );
 }
